@@ -5,8 +5,26 @@ const routes = [
   {
     path: '/',
     component: () => import('@/layouts/default/Default.vue'),
-    
+
   },
+  {
+    path: '/home',
+    component: () => import('@/layouts/auth/Home.vue'),
+    children: [
+      {
+        path: '/home/u',
+        name: 'user',
+              
+        component: () => import('@/views/user.vue'),
+      },
+      {
+        path: '/home/freands',
+        name: 'freands',
+
+        component: () => import('@/views/freands.vue'),
+      }
+    ],
+  }
 ]
 
 const router = createRouter({

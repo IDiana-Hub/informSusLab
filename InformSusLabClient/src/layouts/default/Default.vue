@@ -12,9 +12,9 @@
       <v-text-field
         v-model="parolvalue"
         :rules="rules"
-        label="Логін"
+        label="Пароль"
       ></v-text-field>
-      <v-btn type="submit" block class="mt-2">Відправити</v-btn>
+      <v-btn type="submit" block class="mt-2" v-on:click="submit">Відправити</v-btn>
     </v-form>
   </v-sheet>
   </v-app>
@@ -23,14 +23,11 @@
 <script>
   export default {
     data: () => ({
-      loginvalue: '',
-      rules: [
-        value => {
-          if (value) return true
-
-          return "Ім'я не маоже бути порожнім"
-        },
-      ],
-    }),
+    methods: {
+      submit(){
+        this.$router.push({path: '/home'})
+      }
+    }
+    })
   }
 </script>
